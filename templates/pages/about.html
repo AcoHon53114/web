@@ -97,12 +97,12 @@
                 </p>
                 <hr />
                 <p>
-                    <a href="tel:+85255555555" style="text-decoration: none; color: inherit;">
+                    <a href="tel:+85255555555" class="link">
                         <i class="fas fa-phone"></i> (852)-555-5555
                     </a>
                 </p>
                 <p>
-                    <a href="mailto:kyle@bcrealestate.co" style="text-decoration: none; color: inherit;">
+                    <a href="mailto:kyle@bcrealestate.co" class="link">
                         <i class="fas fa-envelope-open"></i> kyle@bcrealestate.co
                     </a>
                 </p>
@@ -118,12 +118,12 @@
                 <p class="text-success">Realtor</p>
                 <hr />
                 <p>
-                    <a href="tel:+85244444444" style="text-decoration: none; color: inherit;">
+                    <a href="tel:+85244444444" class="link">
                         <i class="fas fa-phone"></i> (852)-444-4444
                     </a>
                 </p>
                 <p>
-                    <a href="mailto:mark@bcrealestate.co" style="text-decoration: none; color: inherit;">
+                    <a href="mailto:mark@bcrealestate.co" class="link">
                         <i class="fas fa-envelope-open"></i> mark@bcrealestate.co
                     </a>
                 </p>
@@ -139,18 +139,32 @@
                 <p class="text-success">Realtor</p>
                 <hr />
                 <p>
-                    <a href="tel:+85233333333" style="text-decoration: none; color: inherit;">
+                    <a href="tel:+85233333333" class="link">
                         <i class="fas fa-phone"></i> (852)-333-3333
                     </a>
                 </p>
                 <p>
-                    <a href="mailto:jenny@bcrealestate.co" style="text-decoration: none; color: inherit;">
+                    <a href="mailto:jenny@bcrealestate.co" class="link">
                         <i class="fas fa-envelope-open"></i> jenny@bcrealestate.co
                     </a>
                 </p>
             </div>
         </div>
     </div>
+
+    <style>
+        .link {
+            text-decoration: none; /* 默认不显示下划线 */
+            color: inherit; /* 继承父元素的颜色 */
+        }
+
+        .link:hover {
+            text-decoration: underline; /* 悬停时显示下划线 */
+        }
+    </style>
 </section>
+
+
+
 
 {% endblock %} 
