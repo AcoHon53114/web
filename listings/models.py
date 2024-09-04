@@ -26,21 +26,8 @@ class Listing(models.Model):
     photo_5 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True) 
     photo_6 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     
-    def _str_(self):
+    def __str__(self):
         return self.title
-
-    
-        
-    
-        class Meta:
-            verbose_name = _("")
-            verbose_name_plural = _("s")
-    
-        def __str__(self):
-            return self.name
-    
-        def get_absolute_url(self):
-            return reverse("_detail", kwargs={"pk": self.pk})
     
     
     
