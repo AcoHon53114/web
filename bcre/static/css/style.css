@@ -15,7 +15,7 @@ img {
   margin-right: 0.4rem; }
 
 #showcase {
-  background-image: url(../img/showcase.jpg);
+  background-image: url( '/static/img/showcase.jpg' );
   position: relative;
   min-height: 650px;
   color: #fff;
