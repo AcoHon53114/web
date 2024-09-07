@@ -1,5 +1,7 @@
-{% extends 'base.html' %} {% block content %}
-{% load humanize %}
+{% extends 'base.html' %} 
+<!--add django humanize function-->
+{% load humanize %} 
+{% block content %}
 <section id="showcase-inner" class="py-5 text-white">
     <div class="container">
       <div class="row text-center">
@@ -59,7 +61,7 @@
               <hr />
               <div class="row py-2 text-secondary">
                 <div class="col-6">
-                  <i class="fas fa-th-large"></i> Sqft: {{listing.sqft}}
+                  <i class="fas fa-th-large"></i> Sqft: {{listing.sqft|intcomma}}
                 </div>
                 <div class="col-6">
                   <i class="fas fa-dumbbell"></i> ClubHouse: {{listing.clubhouse}}
@@ -81,7 +83,28 @@
               </div>
               <div class="row text-secondary pb-2">
                 <div class="col-6">
-                  <i class="fas fa-clock"></i> {{listing.list_date|timesince|slice:":5"}} ago
+                  <i class="fas fa-clock"></i> 
+                  {% with time_since=listing.list_date|timesince %}
+                  {% if "day" in time_since %}
+                  {% if time_since|slice:":1" == "1" %}1 day ago
+                  {% else %}
+                  {{ time_since|slice:":6" }} ago
+                  {% endif %}
+                  {% elif "hour" in time_since %}
+                  {% if time_since|slice:":1" == "1" %}1 hour ago
+                  {% else %}
+                  {{ time_since|slice:":7" }} ago
+                  {% endif %}
+                  {% elif "minute" in time_since %}
+                  {% if time_since|slice:":1" == "1" %}1 minute ago
+                  {% elif time_since|slice:":1" == "0" %}Just now
+                  {% else %}
+                  {{ time_since|slice:":10" }} ago
+                  {% endif %}
+                  {% else %}
+                  {{ time_since|slice:":3" }}ago
+                  {% endif %}
+                  {% endwith %}
                 </div>
               </div>
               <hr />
