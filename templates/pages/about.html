@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+{% load humanize %} 
+{% block content %}
 {% load static %} 
 <section id="showcase-inner" class="py-5 text-white">
     <div class="container">
@@ -46,23 +48,26 @@
             harum perferendis laborum molestias quia.
           </p>
         </div>
+        {% if mvp_realtors %}
         <div class="col-md-4">
           <div class="card">
+            {% for realtor in mvp_realtors %}
             <img
               class="card-img-top"
-              src="assets/img/realtors/kyle.jpg"
+              src={{realtor.photo.url}}
               alt="Seller of the month"
             />
             <div class="card-body">
               <h5 class="card-title">Seller Of The Month</h5>
-              <h6 class="text-secondary">Kyle chan</h6>
+              <h6 class="text-secondary">{{realtor.name}}</h6>
               <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-                nesciunt amet, illo itaque similique repellat. content.
+                {{realtor.description}}
               </p>
             </div>
+            {% endfor %}
           </div>
         </div>
+        {% endif %}
       </div>
     </div>
   </section>
@@ -85,87 +90,39 @@
     <div class="container">
         <h2 class="text-center">Our Team</h2>
         <div class="row text-center" style="display: flex; justify-content: space-around; align-items: center;">
-            <div class="col-md-4" style="height: 350px;"> <!-- 统一高度 -->
+        {% if realtors %}
+        {% for realtor in realtors %}
+          <div class="col-md-4" style="height: 350px;"> <!-- 统一高度 -->
                 <img
-                    src="assets/img/realtors/kyle.jpg"
+                    src={{realtor.photo.url}}
                     alt=""
                     class="rounded-circle mb-3"
                 />
-                <h4>Kyle Chan</h4>
+                <h4>{{realtor.name}}</h4>
                 <p class="text-success">
                     <i class="fas fa-award text-success mb-3"></i> Realtor
                 </p>
                 <hr />
                 <p>
-                    <a href="tel:+85255555555" class="link">
-                        <i class="fas fa-phone"></i> (852)-555-5555
+                    <a href="tel:+85255555555" >
+                        <i class="fas fa-phone"></i> {{realtor.phone}}
                     </a>
                 </p>
                 <p>
-                    <a href="mailto:kyle@bcrealestate.co" class="link">
-                        <i class="fas fa-envelope-open"></i> kyle@bcrealestate.co
+                    <a href="mailto:kyle@bcrealestate.co" >
+                        <i class="fas fa-envelope-open"></i> {{realtor.email}}
                     </a>
                 </p>
             </div>
-
-            <div class="col-md-4" style="height: 350px;"> <!-- 统一高度 -->
-                <img
-                    src="assets/img/realtors/mark.jpg"
-                    alt=""
-                    class="rounded-circle mb-3"
-                />
-                <h4>Mark Lee</h4>
-                <p class="text-success">Realtor</p>
-                <hr />
-                <p>
-                    <a href="tel:+85244444444" class="link">
-                        <i class="fas fa-phone"></i> (852)-444-4444
-                    </a>
-                </p>
-                <p>
-                    <a href="mailto:mark@bcrealestate.co" class="link">
-                        <i class="fas fa-envelope-open"></i> mark@bcrealestate.co
-                    </a>
-                </p>
-            </div>
-
-            <div class="col-md-4" style="height: 350px;"> <!-- 统一高度 -->
-                <img
-                    src="assets/img/realtors/jenny.jpg"
-                    alt=""
-                    class="rounded-circle mb-3"
-                />
-                <h4>Jenny Cheung</h4>
-                <p class="text-success">Realtor</p>
-                <hr />
-                <p>
-                    <a href="tel:+85233333333" class="link">
-                        <i class="fas fa-phone"></i> (852)-333-3333
-                    </a>
-                </p>
-                <p>
-                    <a href="mailto:jenny@bcrealestate.co" class="link">
-                        <i class="fas fa-envelope-open"></i> jenny@bcrealestate.co
-                    </a>
-                </p>
-            </div>
+        
         </div>
-    </div>
-
-    <style>
-        .link {
-            text-decoration: none; /* 默认不显示下划线 */
-            color: inherit; /* 继承父元素的颜色 */
-        }
-
-        .link:hover {
-            text-decoration: underline; /* 悬停时显示下划线 */
-        }
-    </style>
+        {% endfor %}
+        {% else %}
+        <div class="col-md-12">
+          <p>No Realtor available</p>
+        </div>
+        {% endif %}
+      </div>
+  </div>
 </section>
-
-
-
-
-
-{% endblock %} 
+{% endblock %}

@@ -10,8 +10,9 @@ def index(request):
     #return HttpResponse("<h1>Hello World</h1>")
     
     # ! get all data from listing database 
-    listings = Listing.objects.all()
-    paginator = Paginator(listings, 3)
+    #listings = Listing.objects.all()
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+    paginator = Paginator(listings, 6)
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
      # ! pass database records into listings context
