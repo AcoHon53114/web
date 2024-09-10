@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-7=8#)fcp=-=q5b(#z@-c_a+%p)7e5l^iwf7+$n6s!7fjsdlp3o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -125,6 +126,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'bcre/static')
+
 ]
 
 # Default primary key field type

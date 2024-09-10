@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+{% load humanize %} 
+{% block content %}
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found</title>
+</head>
+<body>
+    <h1>404 - Page Not Found</h1>
+    
+    <p>抱歉，找不到該頁面。</p>
+    <img src={% static "/img/about.jpg" %} alt="" />
+    <img src={% static "/img/404.jpg" %} width="200" height="300" alt="" />
+   
+</body>
+</html>
+{% endblock %}
+
