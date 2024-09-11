@@ -34,50 +34,38 @@
               <div class="col-md-4 mb-3">
                 <label class="sr-only">District</label>
                 <select name="District" class="form-control">
-                  <option selected="true" disabled="disabled">
-                    Districts (All)
-                  </option>
-                  {% for key,value in district_choices.items %}
-                  <option value="{{key}}" 
-                  {% if key == values.District %} selected {% endif %}
-                  >{{value}}</option>
-                  {% endfor %}
+                    <option value="" {% if not values.District %} selected {% endif %}>Districts (All)</option>
+                    {% for key, value in district_choices.items %}
+                        <option value="{{ key }}" {% if key == values.District %} selected {% endif %}>{{ value }}</option>
+                    {% endfor %}
 
                 </select>
               </div>
             </div>
-            <!-- Form Row 2 -->
-            <div class="form-row">
-              <div class="col-md-6 mb-3">
-                <label class="sr-only">Bedrooms</label>
-                <select name="bedrooms" class="form-control">
-                  <option selected="true" disabled="disabled">
-                    Bedrooms (Any)
-                  </option>
-                  {% for key,value in bedroom_choices.items %}
-                  <option value="{{key}}"
-                  {% if key == values.bedrooms %} selected {% endif %}
-                  >{{value}}</option>
-                  {% endfor %}
+<!-- Form Row 2 -->
+<div class="form-row">
+  <div class="col-md-6 mb-3">
+      <label class="sr-only">Bedrooms</label>
+      <select name="bedrooms" class="form-control">
+          <option value="" {% if not values.bedrooms %} selected {% endif %}>Bedrooms (Any)</option>
+          {% for key, value in bedroom_choices.items %}
+          <option value="{{ key }}" {% if key == values.bedrooms %} selected {% endif %}>{{ value }}</option>
+          {% endfor %}
 
                 </select>
               </div>
               <div class="col-md-6 mb-3">
                 <select name="price" class="form-control">
-                  <option selected="true" disabled="disabled">
-                    Max Price (All)
-                  </option>
-                  {% for key,value in price_choices.items %}
-                  <option value="{{key}}"
-                  {% if key == values.price %} selected {% endif %}
-                  >{{value}}</option>
-                  {% endfor %}
+                    <option value="" {% if not values.price %} selected {% endif %}>Max Price (All)</option>
+                    {% for key, value in price_choices.items %}
+                        <option value="{{ key }}" {% if key == values.price %} selected {% endif %}>{{ value }}</option>
+                    {% endfor %}
 
                 </select>
               </div>
             </div>
             <button class="btn btn-secondary btn-block mt-4" type="submit">
-              Submit form
+              Search
             </button>
           </form>
         </div>

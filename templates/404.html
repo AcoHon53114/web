@@ -10,11 +10,9 @@
     <title>Page Not Found</title>
 </head>
 <body>
-    <h1>404 - Page Not Found</h1>
-    <p>抱歉，找不到該頁面。</p>
-    <img src="{% static '/img/about.jpg' %}" alt="" />
-    <img src="{% static '/img/404_2.jpeg' %}" width="500" height="500" alt="" />
-   
+    <h1>OOps! the listing not found</h1>
+
+    <img src="{% static '/img/404_2.jpeg' %}" width="450" height="450" alt="" onerror="this.styple.display='none'"/>
 </body>
 </html>
 {% endblock %}
