@@ -15,17 +15,19 @@
                   type="text"
                   name="keywords"
                   class="form-control"
+                  value="{{values.keywords}}"
                   placeholder="Keyword (Bathrooms, ClubHouse, etc)"
                 />
               </div>
 
               <div class="col-md-4 mb-3">
-                <label class="sr-only">title</label>
+                <label class="sr-only">Title</label>
                 <input
                   type="text"
                   name="title"
                   class="form-control"
-                  placeholder="title"
+                  value="{{values.title}}"
+                  placeholder="Title"
                 />
               </div>
 
@@ -36,7 +38,9 @@
                     Districts (All)
                   </option>
                   {% for key,value in district_choices.items %}
-                  <option value="{{key}}">{{value}}</option>
+                  <option value="{{key}}" 
+                  {% if key == values.District %} selected {% endif %}
+                  >{{value}}</option>
                   {% endfor %}
 
                 </select>
@@ -51,7 +55,9 @@
                     Bedrooms (Any)
                   </option>
                   {% for key,value in bedroom_choices.items %}
-                  <option value="{{key}}">{{value}}</option>
+                  <option value="{{key}}"
+                  {% if key == values.bedrooms %} selected {% endif %}
+                  >{{value}}</option>
                   {% endfor %}
 
                 </select>
@@ -62,7 +68,9 @@
                     Max Price (All)
                   </option>
                   {% for key,value in price_choices.items %}
-                  <option value="{{key}}">{{value}}</option>
+                  <option value="{{key}}"
+                  {% if key == values.price %} selected {% endif %}
+                  >{{value}}</option>
                   {% endfor %}
 
                 </select>

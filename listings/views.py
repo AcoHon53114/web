@@ -41,8 +41,8 @@ def search(request):
              queryset_list = queryset_list.filter(
                 title__icontains=title
             )
-    if 'district' in request.GET:
-        district = request.GET['district']
+    if 'District' in request.GET:
+        district = request.GET['District']
         if district:
             queryset_list = queryset_list.filter(
                 district__iexact=district
@@ -57,12 +57,13 @@ def search(request):
         bedrooms = request.GET['bedrooms']
         if bedrooms:
             queryset_list = queryset_list.filter(
-                bedrooms__gte=bedrooms
+                bedrooms__lte=bedrooms
             )
     context = {
         'price_choices': price_choices,
         'bedroom_choices': bedroom_choices,
         'district_choices': district_choices,
-        'listings': queryset_list
+        'listings': queryset_list,
+        'values': request.GET
     }
     return render(request, 'listings/search.html', context)
