@@ -1,6 +1,7 @@
 {% extends 'base.html' %} 
 {% load humanize %}
 {% block content %}
+{% include 'partials/_alert.html' %}
     <!-- Showcase -->
     <section id="showcase">
         <div class="container text-center">
@@ -84,7 +85,7 @@
           </div>
         </div>
       </section>
-  
+
       <!-- Listings -->
       <section id="listings" class="py-5">
         <div class="container">
@@ -96,6 +97,7 @@
             {% for listing in listings %}
             <div class="col-md-6 col-lg-4 mb-4">
               <div class="card listing-preview">
+                <a href="{% url 'listing' listing.id %}">
                 <img
                   class="card-img-top"
                   src={{listing.photo_main.url}}
