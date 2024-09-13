@@ -153,4 +153,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'dpythonweb@gmail.com'
-EMAIL_HOST_PASSWORD = 'xxxxxxx' 
+EMAIL_HOST_PASSWORD = 'eumt bzgd pbkl yfeh' 
