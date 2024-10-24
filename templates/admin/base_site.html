@@ -13,10 +13,15 @@
  />
 </h1>
 {% endblock %}
+<!-- log in again -->
+{% block content %}
+    <!--<p><a href="/admin/" class="background-button">Log in again</a></p>-->
+    <!--<a href="/admin/" class='btn btn-primary' role='button'>Log in again</a>-->
+    <button type='button' class="btn btn-primary">Log in again</button>
+{% endblock %}
     add CSS style
 <!--add CSS style -->
 {% block extrastyle %} 
 <!--add CSS link -->
 <link rel="stylesheet" href={% static 'css/admin.css' %}/> 
 {% endblock %}
-
