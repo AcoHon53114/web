@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 from django.contrib.messages import constants as messages
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -56,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'bcre.urls'
@@ -123,6 +125,16 @@ USE_I18N = True
 
 USE_TZ = True
 
+# 设置支持的语言
+LANGUAGES = [
+    ('zh-hans', _('Simplified Chinese')),
+    ('zh-hant', _('Traditional Chinese')),
+    ('en', _('English')),
+]
+
+# 启用本地化
+USE_L10N = True
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -131,6 +143,10 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'bcre/static')
 
+]
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
 ]
 
 # Default primary key field type
